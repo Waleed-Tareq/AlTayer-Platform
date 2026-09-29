@@ -1,28 +1,37 @@
-# Al-Tayer Super Admin Dashboard (V1)
+# Al-Tayer Platform
 
-High-fidelity interactive single-page Super Admin UI for **Al-Tayer** — a multi-tenant university campus food delivery and queue management platform.
+A personal project by **Waleed Tareq** for trying different approaches to a university campus food ordering and queue management platform. This repository brings together a Super Admin dashboard, a merchant portal, and an ASP.NET Core Web API. It is a learning and experimentation project, not a production deployment.
 
-## Run the dashboard
+## Project structure
 
-**Easiest:** double-click `Run Dashboard.bat`  
-→ starts a local server and opens your browser (usually `http://127.0.0.1:8080/`).
+| Path | Purpose |
+| --- | --- |
+| `index.html`, `styles.css`, `app.js` | Interactive Super Admin dashboard |
+| `merchant-portal/` | Merchant-facing web interface |
+| `AlTayer.API/` | ASP.NET Core 8 API, data models, and authentication |
+| `AlTayer.sln` | Visual Studio solution |
+| `serve.py`, `Run Dashboard.bat` | Local dashboard server and Windows launcher |
 
-**In Visual Studio:**
-1. Right-click `index.html` → **View in Browser** (or Open With → browser), **or**
-2. Double-click `Run Dashboard.bat` from Solution Explorer, **or**
-3. Select **Al-Tayer Dashboard** as the startup item and press the green Run button (if shown).
+## Explore locally
 
-**From a terminal:**
+**Super Admin dashboard:** On Windows, double-click `Run Dashboard.bat`, or run `python serve.py` from the repository root. Open the local address printed by the server (typically `http://127.0.0.1:8080/`).
+
+**API:** Install the .NET 8 SDK and SQL Server LocalDB, then run:
 
 ```bash
-python serve.py
+cd AlTayer.API
+dotnet restore
+dotnet run
 ```
 
-## Includes
+The API project documents its Swagger page, routes, and sample merchant token in [AlTayer.API/README.md](AlTayer.API/README.md). The dashboard and API are separate parts of the repository; running the dashboard does not automatically start the API.
 
-- Dark fixed sidebar with Al-Tayer branding and nav
-- Light main area with sticky glass header
-- 4 metric cards (GMV, commission, students, active orders)
-- Combined line + bar weekly chart (Chart.js)
-- Live Orders Monitor table with status badges
-- Hover states, profile dropdown, mobile sidebar toggle
+## What this project explores
+
+- A responsive Super Admin dashboard with summary cards, charts, and an order monitor
+- Merchant menu endpoints and item availability
+- ASP.NET Core Web API, Entity Framework Core, LocalDB, and JWT-based development flows
+
+## Development note
+
+The checked-in configuration includes a sample JWT signing key and a development token endpoint. Use this repository only in a local test environment. Before any public deployment, disable development tokens, replace the key with a secret supplied outside source control, and review authentication, CORS, and database settings.
