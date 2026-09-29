@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al-Tayer Admin Portal | Super Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="url(#logoGrad)"/>
+            <path d="M10 26L20 10L30 26H24.5L20 18.5L15.5 26H10Z" fill="white"/>
+            <circle cx="20" cy="28" r="2.5" fill="#14B8A6"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                <stop stop-color="#1E3A8A"/>
+                <stop offset="1" stop-color="#2563EB"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Al-Tayer</span>
+          <span class="brand-sub">Super Admin</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="#dashboard" class="nav-item active" data-nav="dashboard" aria-current="page">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+          </span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#campuses" class="nav-item" data-nav="campuses">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg>
+          </span>
+          <span>Campuses</span>
+        </a>
+        <a href="#merchants" class="nav-item" data-nav="merchants">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 10h16v10H4V10zM4 10l2-5h12l2 5M9 14h6"/></svg>
+          </span>
+          <span>Merchants</span>
+        </a>
+        <a href="#finance" class="nav-item" data-nav="finance">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 14h4"/></svg>
+          </span>
+          <span>Finance</span>
+        </a>
+        <a href="#users" class="nav-item" data-nav="users">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="9" cy="8" r="3.5"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M21 19c0-2-1.5-3.5-4-4"/></svg>
+          </span>
+          <span>Users</span>
+        </a>
+        <a href="#notifications" class="nav-item" data-nav="notifications">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 9a6 6 0 1 1 12 0c0 3.5 1.5 5 2 6H4c.5-1 2-2.5 2-6z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+          </span>
+          <span>Notifications</span>
+        </a>
+        <a href="#ads" class="nav-item" data-nav="ads">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 11v2a1 1 0 0 0 1 1h1l6 4V6L5 10H4a1 1 0 0 0-1 1z"/><path d="M14 9.5c1.2.8 2 2.1 2 3.5s-.8 2.7-2 3.5"/><path d="M16.5 7c2 1.4 3.2 3.5 3.2 6s-1.2 4.6-3.2 6"/></svg>
+          </span>
+          <span>Ads Management</span>
+        </a>
+        <a href="#settings" class="nav-item" data-nav="settings">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          </span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="campus-chip">
+          <span class="chip-dot"></span>
+          <span>University of Jordan</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <h1 class="page-title">
+            Al-Tayer Admin Portal
+            <span class="title-sep">|</span>
+            <span class="title-role">Super Admin: Ahmad Salem</span>
+          </h1>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input type="search" class="global-search" id="globalSearch" placeholder="Search orders, students, merchants…" aria-label="Global search" />
+            <span class="search-feedback" id="searchFeedback" hidden></span>
+          </div>
+
+          <div class="notif-wrap" id="notifWrap">
+            <button class="icon-btn" id="notifBtn" type="button" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 9a6 6 0 1 1 12 0c0 3.5 1.5 5 2 6H4c.5-1 2-2.5 2-6z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+              <span class="badge-dot" id="notifBadge">3</span>
+            </button>
+            <div class="notif-panel" id="notifPanel" role="menu" hidden>
+              <div class="notif-panel-head">
+                <h3>Notifications</h3>
+                <button type="button" class="ghost-btn notif-mark-read" id="markNotifsRead">Mark all read</button>
+              </div>
+              <ul class="notif-list" id="notifList"></ul>
+            </div>
+          </div>
+
+          <div class="profile-dropdown" id="profileDropdown">
+            <button class="profile-trigger" id="profileBtn" aria-expanded="false" aria-haspopup="true">
+              <div class="avatar">AS</div>
+              <div class="profile-meta">
+                <span class="profile-name">Ahmad Salem</span>
+                <span class="profile-role">Super Admin</span>
+              </div>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="dropdown-menu" role="menu">
+              <a href="#" role="menuitem">My Profile</a>
+              <a href="#" role="menuitem">Account Settings</a>
+              <hr />
+              <a href="#" role="menuitem" class="danger">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- Dashboard -->
+        <div class="page-panel active" id="panel-dashboard" data-panel="dashboard">
+          <section class="metrics" aria-label="Key metrics">
+            <article class="metric-card metric-sales">
+              <div class="metric-head">
+                <span class="metric-label">Total Sales (GMV)</span>
+                <span class="metric-trend up">+3.2% vs yesterday</span>
+              </div>
+              <div class="metric-body">
+                <p class="metric-value" id="metricGmv">— <small>JD</small></p>
+                <div class="spark-wrap">
+                  <canvas id="sparkSales" width="120" height="40"></canvas>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card metric-earnings">
+              <div class="metric-head">
+                <span class="metric-label">Platform Earnings</span>
+                <span class="metric-hint">Commission</span>
+              </div>
+              <div class="metric-body">
+                <p class="metric-value" id="metricPlatformEarnings">— <small>JD</small></p>
+                <div class="spark-wrap">
+                  <canvas id="sparkEarnings" width="120" height="40"></canvas>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card metric-students">
+              <div class="metric-head">
+                <span class="metric-label">Active Students Today</span>
+              </div>
+              <div class="metric-body">
+                <p class="metric-value" id="metricActiveStudents">—</p>
+                <div class="metric-icon-bubble students">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M4 10v5c0 1.5 3.5 3 8 3s8-1.5 8-3v-5"/><path d="M21 10v6"/></svg>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card metric-orders">
+              <div class="metric-head">
+                <span class="metric-label">Active Orders</span>
+              </div>
+              <div class="metric-body">
+                <p class="metric-value" id="metricActiveOrders">—</p>
+                <div class="metric-icon-bubble orders pulse">
+                  <span class="pulse-ring"></span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 6h14l2 4v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6z"/><path d="M4 10h16M9 14h2"/></svg>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="widgets">
+            <article class="widget chart-widget">
+              <div class="widget-header">
+                <div>
+                  <h2 class="widget-title">Daily Sales &amp; Order Volume (Weekly)</h2>
+                  <p class="widget-subtitle">Cafeteria Engineering vs Cafeteria Arts — current week</p>
+                </div>
+                <div class="chart-legend" id="chartLegend">
+                  <span class="legend-item"><i class="swatch eng-line"></i> Eng. Sales</span>
+                  <span class="legend-item"><i class="swatch arts-line"></i> Arts Sales</span>
+                  <span class="legend-item"><i class="swatch eng-bar"></i> Eng. Orders</span>
+                  <span class="legend-item"><i class="swatch arts-bar"></i> Arts Orders</span>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="mainChart"></canvas>
+              </div>
+            </article>
+
+            <article class="widget table-widget">
+              <div class="widget-header">
+                <div>
+                  <h2 class="widget-title">Live Orders Monitor</h2>
+                  <p class="widget-subtitle">
+                    <span class="live-dot"></span>
+                    Real-time campus orders
+                  </p>
+                </div>
+                <button class="ghost-btn" id="refreshOrders" type="button">Refresh</button>
+              </div>
+              <div class="table-scroll">
+                <table class="orders-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Student</th>
+                      <th>Merchant</th>
+                      <th>Status</th>
+                      <th>Time</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersBody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+              <p class="empty-table" id="ordersEmpty" hidden>No orders match your search.</p>
+            </article>
+          </section>
+        </div>
+
+        <!-- Campuses -->
+        <div class="page-panel" id="panel-campuses" data-panel="campuses" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Campuses</h2>
+            <p class="panel-desc">Manage university campuses connected to Al-Tayer.</p>
+          </header>
+          <div class="demo-grid" id="campusesGrid"></div>
+        </div>
+
+        <!-- Merchants -->
+        <div class="page-panel" id="panel-merchants" data-panel="merchants" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Merchants</h2>
+            <p class="panel-desc">Cafeterias and vendors across active campuses.</p>
+          </header>
+          <div class="widget">
+            <div class="table-scroll">
+              <table class="orders-table demo-table">
+                <thead>
+                  <tr>
+                    <th>Merchant</th>
+                    <th>Campus</th>
+                    <th>Orders Today</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="merchantsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance -->
+        <div class="page-panel" id="panel-finance" data-panel="finance" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Finance</h2>
+            <p class="panel-desc">Settlements, commissions, and payout overview.</p>
+          </header>
+          <section class="metrics metrics-compact" aria-label="Finance metrics">
+            <article class="metric-card metric-sales">
+              <div class="metric-head"><span class="metric-label">Pending Payouts</span></div>
+              <div class="metric-body"><p class="metric-value" id="pendingPayoutsValue">1,840.00 <small>JD</small></p></div>
+            </article>
+            <article class="metric-card metric-earnings">
+              <div class="metric-head"><span class="metric-label">Commission (MTD)</span></div>
+              <div class="metric-body"><p class="metric-value">8,240.50 <small>JD</small></p></div>
+            </article>
+            <article class="metric-card metric-students">
+              <div class="metric-head"><span class="metric-label">Settled This Week</span></div>
+              <div class="metric-body"><p class="metric-value" id="settledWeekValue">12,100.00 <small>JD</small></p></div>
+            </article>
+          </section>
+          <div class="widget">
+            <div class="widget-header">
+              <div>
+                <h2 class="widget-title">Recent Settlements</h2>
+                <p class="widget-subtitle">Pending cafeteria payouts — settle to clear balances</p>
+              </div>
+            </div>
+            <ul class="demo-list" id="financeList"></ul>
+          </div>
+        </div>
+
+        <!-- Users -->
+        <div class="page-panel" id="panel-users" data-panel="users" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Users</h2>
+            <p class="panel-desc">Students, merchant staff, and admin accounts.</p>
+          </header>
+          <div class="user-profile-panel" id="userProfilePanel" hidden></div>
+          <div class="widget" id="usersTableWidget">
+            <div class="table-scroll">
+              <table class="orders-table demo-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                    <th>Campus</th>
+                    <th>Last Active</th>
+                  </tr>
+                </thead>
+                <tbody id="usersBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications page -->
+        <div class="page-panel" id="panel-notifications" data-panel="notifications" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Notifications Center</h2>
+            <p class="panel-desc">System alerts, merchant updates, and order escalations.</p>
+          </header>
+          <div class="widget">
+            <ul class="notif-list notif-list-page" id="notifPageList"></ul>
+          </div>
+        </div>
+
+        <!-- Ads Management -->
+        <div class="page-panel" id="panel-ads" data-panel="ads" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Ads Management</h2>
+            <p class="panel-desc">Create and manage targeted banner ads shown in the student mobile app. <code class="inline-code">CampusID = null</code> means Global.</p>
+          </header>
+
+          <article class="widget ads-form-card">
+            <div class="widget-header">
+              <div>
+                <h2 class="widget-title">Create New Advertisement</h2>
+                <p class="widget-subtitle">Publish a banner with campus targeting and schedule</p>
+              </div>
+            </div>
+            <form id="adCreateForm" class="ads-form" novalidate>
+              <div class="form-grid">
+                <label class="form-field">
+                  <span class="form-label">Ad Title</span>
+                  <input type="text" id="adTitle" name="title" placeholder="e.g. McDonald's Campus Offer" required />
+                </label>
+
+                <label class="form-field">
+                  <span class="form-label">Target Scope</span>
+                  <select id="adTargetScope" name="scope" required>
+                    <option value="global">All Campuses (Global)</option>
+                    <option value="specific">Specific Campus</option>
+                  </select>
+                </label>
+
+                <div class="form-field form-field-full" id="adCampusField" hidden>
+                  <span class="form-label">Campuses</span>
+                  <div class="campus-multiselect" id="adCampusMultiselect" role="group" aria-label="Select campuses"></div>
+                  <span class="form-hint">Ad is shown only to students registered under selected CampusID(s).</span>
+                </div>
+
+                <div class="form-field form-field-full">
+                  <span class="form-label">Ad Banner Image</span>
+                  <div class="dropzone" id="adDropzone" tabindex="0" role="button" aria-label="Upload banner image">
+                    <input type="file" id="adBannerFile" accept="image/*" hidden />
+                    <div class="dropzone-inner" id="adDropzoneInner">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 14v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+                      <p><strong>Drag &amp; drop</strong> a banner here, or <span class="dropzone-link">browse</span></p>
+                      <span class="form-hint">PNG, JPG · recommended 1200×400</span>
+                    </div>
+                    <div class="dropzone-preview" id="adDropzonePreview" hidden>
+                      <img id="adBannerPreview" alt="Banner preview" />
+                      <button type="button" class="ghost-btn" id="adBannerClear">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <label class="form-field form-field-full">
+                  <span class="form-label">Target URL / Deep Link <span class="optional">(Optional)</span></span>
+                  <input type="text" id="adTargetUrl" name="targetUrl" placeholder="altayer://merchant/mcdonalds or https://…" />
+                </label>
+
+                <label class="form-field">
+                  <span class="form-label">Start Date</span>
+                  <input type="date" id="adStartDate" name="startDate" required />
+                </label>
+
+                <label class="form-field">
+                  <span class="form-label">End Date</span>
+                  <input type="date" id="adEndDate" name="endDate" required />
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="adPublishBtn">Publish Advertisement</button>
+              </div>
+            </form>
+          </article>
+
+          <article class="widget">
+            <div class="widget-header">
+              <div>
+                <h2 class="widget-title">Active &amp; Past Advertisements</h2>
+                <p class="widget-subtitle">Pause, resume, or delete student-app banners</p>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="orders-table ads-table">
+                <thead>
+                  <tr>
+                    <th>Banner</th>
+                    <th>Title &amp; Dates</th>
+                    <th>Target Scope</th>
+                    <th>Performance</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adsTableBody"></tbody>
+              </table>
+            </div>
+            <p class="empty-table" id="adsEmpty" hidden>No advertisements yet. Publish your first banner above.</p>
+          </article>
+        </div>
+
+        <!-- Settings -->
+        <div class="page-panel" id="panel-settings" data-panel="settings" hidden>
+          <header class="panel-intro">
+            <h2 class="panel-heading">Settings</h2>
+            <p class="panel-desc">Platform preferences for this super admin demo.</p>
+          </header>
+          <div class="settings-grid" id="settingsGrid"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Order detail modal -->
+  <div class="modal-backdrop" id="orderModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="modal-head">
+        <h2 id="orderModalTitle">Order details</h2>
+        <button type="button" class="icon-btn modal-close" id="orderModalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="orderModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden role="status"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <script src="app.js"></script>
+</body>
+</html>
